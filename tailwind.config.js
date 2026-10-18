@@ -1,35 +1,22 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: 'class', // Активируем ручное переключение тем через класс 'dark'
   theme: {
     extend: {
       colors: {
-        // Тёмная тема (Color.kt)
-        'bg-dark': '#13131A',
-        'card-dark': '#1C1C27',
-        'item-dark': '#242433',
-        'border-dark': '#2E2E40',
-        'text-primary-dark': '#FFFFFF',
-        'text-secondary-dark': '#8D8D9D',
-
-        // Светлая тема (Color.kt)
-        'bg-light': '#F5F6FA',
-        'card-light': '#FFFFFF',
-        'item-light': '#ECEFF5',
-        'border-light': '#DCDDE1',
-        'text-primary-light': '#1E272E',
-        'text-secondary-light': '#718093',
-
-        // Статусные цвета (Color.kt)
-        'accent-green': '#2ED573',
+        // Теперь классы типа bg-card-dark будут динамически менять цвет в зависимости от темы!
+        'bg-dark': 'var(--bg-main)',
+        'card-dark': 'var(--bg-card)',
+        'item-dark': 'var(--bg-item)',
+        'border-dark': 'var(--border-main)',
+        'text-primary-dark': 'var(--text-primary)',
+        'text-secondary-dark': 'var(--text-secondary)',
+        'accent-green': '#2ED573', // Зеленый и красный оставляем жесткими
         'accent-red': '#FF4757',
-        'indicator-track': '#2E2E40',
-
-        // Динамический акцент (ThemeManager.kt)
         accent: {
           DEFAULT: 'var(--accent-color)',
           light: 'var(--accent-light-color)',
